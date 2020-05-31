@@ -23,33 +23,51 @@ using namespace std;
  
 void print_dequeue_queue(QueueData *queue){
     Node *deque = queue->dequeue(); 
-    cout << "-- DEQUEUE --" << endl;
-    cout << endl;
-    cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
-    cout << endl;
-    cout << " " << deque->getindex() << "\t"
-         << " " << deque->getkey() << "\t"
-         << " " << deque->getlabel() << "\t"
-         << " " << deque->getval() << " \n";
-    cout << endl;
+    if(deque != nullptr){
+        cout << "| -- \t\tDEQUEUE DATA STRUCTURE \t\t -- |\t" << endl << endl;
+        cout << endl;
+        cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
+        cout << endl;
+        cout << " " << deque->getindex() << "\t"
+             << " " << deque->getkey() << "\t"
+             << " " << deque->getlabel() << "\t"
+             << " " << deque->getval() << " \n";
+        cout << endl;
+    }
 }
 
 void print_enqueue_queue(Node *node){ 
-    cout << "-- ENQUEUE --" << endl;
-    cout << endl;
-    cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
-    cout << endl;
-    cout << " " << node->getindex() << "\t"
-         << " " << node->getkey() << "\t"
-         << " " << node->getlabel() << "\t"
-         << " " << node->getval() << " \n";
-    cout << endl;
+    if(node != nullptr){
+        cout << "| -- \t\tENQUEUE DATA STRUCTURE \t\t -- |\t" << endl << endl;
+        cout << endl;
+        cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
+        cout << endl;
+        cout << " " << node->getindex() << "\t"
+             << " " << node->getkey() << "\t"
+             << " " << node->getlabel() << "\t"
+             << " " << node->getval() << " \n";
+        cout << endl;
+    }
+}
+
+void print_update_queue(Node *node){ 
+    if(node != nullptr){
+        cout << "| -- \t\tUPTADE DATA STRUCTURE \t\t -- |\t" << endl << endl;
+        cout << endl;
+        cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
+        cout << endl;
+        cout << " " << node->getindex() << "\t"
+             << " " << node->getkey() << "\t"
+             << " " << node->getlabel() << "\t"
+             << " " << node->getval() << " \n";
+        cout << endl;
+    }
 }
 
 void print_search_for_key_queue(QueueData *queue, int key){
+    cout << "| -- \t\tSEARCH FOR KEY DATA STRUCTURE \t\t -- |\t" << endl << endl;
     Node *aux = queue->queue_getkey(key);
-    if(aux != nullptr){
-        cout << "-- SEARCH FOR KEY --" << endl;
+    if(aux != nullptr){ 
         cout << endl;
         cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
         cout << endl;
@@ -59,15 +77,15 @@ void print_search_for_key_queue(QueueData *queue, int key){
              << " " << aux->getval() << " \n";
         cout << endl;
     }else{
-        cout << "SEARCH FOR KEY --> " << " :( NOT FOUND " << endl;
+         cout << "| -- \t\tSEARCH FOR KEY --> " << " :( NOT FOUND \t\t --|\t" << endl << endl;
     }
     cout << endl;
 }
 
 void print_search_for_index_queue(QueueData *queue, int index){
+    cout << "| -- \t\tSEARCH FOR INDEX DATA STRUCTURE \t\t -- |\t" << endl << endl;
     Node *aux = queue->queue_getindex(index);
-    if(aux != nullptr){
-        cout << "-- SEARCH FOR INDEX -- " << endl;
+    if(aux != nullptr){ 
         cout << endl;
         cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
         cout << endl;
@@ -77,15 +95,15 @@ void print_search_for_index_queue(QueueData *queue, int index){
              << " " << aux->getval() << " \n";
         cout << endl;
     }else{
-        cout << "SEARCH FOR INDEX --> " << " :( NOT FOUND " << endl;
+        cout << "| -- \t\tSEARCH FOR INDEX --> " << " :( NOT FOUND \t\t --|\t" << endl << endl;
     }
     cout << endl;
 }
 
 void print_search_for_value_queue(QueueData *queue, string value){
+    cout << "| -- \t\tSEARCH FOR VALUE DATA STRUCTURE \t\t -- |\t" << endl << endl;
     Node *aux = queue->queue_getval(value);
     if(aux != nullptr){
-        cout << "-- SEARCH FOR VAL -- " << endl;
         cout << endl;
         cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
         cout << endl;
@@ -96,7 +114,7 @@ void print_search_for_value_queue(QueueData *queue, string value){
         cout << endl;
         
     }else{
-        cout << "SEARCH FOR VAL --> " << " :( NOT FOUND " << endl;
+        cout << "| -- \t\tSEARCH FOR VAL --> " << " :( NOT FOUND \t\t --|\t" << endl << endl;
     }
     cout << endl;
 }
@@ -104,7 +122,7 @@ void print_search_for_value_queue(QueueData *queue, string value){
 
 void print_first_queue(QueueData *queue){
     cout << endl;
-    cout << "-- FIRST QUEUE -- " << endl;
+    cout << "| -- \t\tFIRST QUEUE DATA STRUCTURE \t\t -- |\t" << endl << endl;
     Node *first = queue->queue_first();
     cout << endl;
     cout << "|INDEX|\t|KEY|\t|LABEL|\t\t|VALUE|\t";
@@ -117,7 +135,7 @@ void print_first_queue(QueueData *queue){
 }
 
 void print_last_queue(QueueData *queue){
-    cout << "-- LAST QUEUE -- " << endl;
+    cout << "| -- \t\tLAST QUEUE DATA STRUCTURE \t\t -- |\t" << endl << endl;
 
     Node *last = queue->queue_last();
     cout << endl;
@@ -131,58 +149,137 @@ void print_last_queue(QueueData *queue){
 }
 
 void print_queue(QueueData *queue){
-    
-    
+    system("cls || clear");
     queue->queue_print();
-    
     cout << endl;
-   
+    print_first_queue(queue);
+    cout << endl;
+    print_last_queue(queue);
 }
 
 
 void painel_queue(){
     QueueData *queue = new QueueData();
     int option;
+    
     const string label = "TIME\t";
-    do{
-       
+    do{ 
        cout << "| -- \t\tQUEUE DATA STRUCTURE \t\t -- |\t" << endl << endl;
        cout << "| -- \t\tOPTIONS BELOW \t\t\t -- |" << endl << endl;
        cout << "| -- \t\tTO ENQUEUE CLICK (1)\t\t -- |" << endl << endl;
-       cout << "| -- \t\tTO DEQUEUE CLICK (2)\t\t -- |" << endl << endl;
-       cout << "| -- \t\tTO PRINT CLICK (3)\t\t -- |" << endl << endl;
-       cout << "| -- \t\tREPORT OPTION\t\t -- |" << endl << endl; 
+       cout << "| -- \t\tTO UPDATE CLICK (2)\t\t -- |" << endl << endl;
+       cout << "| -- \t\tTO DEQUEUE CLICK (3)\t\t -- |" << endl << endl;
+       cout << "| -- \t\tTO PRINT CLICK (4)\t\t -- |" << endl << endl;
+       cout << "| -- \t\tTO EXIT CLICK (-1)\t\t -- |" << endl << endl;
+       cout << "| -- \t\tREPORT OPTION     \t\t -- |" << endl << endl; 
        cin >> option;
        system("cls || clear");
        switch(option){
            case 1: 
+           {  
               int key;
               string val;
               system("cls || clear");
               cout << "| -- \t\tREPORT KEY \t\t -- |\t" << endl << endl;
               cin >> key;
               system("cls || clear");
-              cout << "| -- \t\tREPORT VALUE \t\t -- |\t" << endl << endl;
-              getline (cin, val);
+              cout << "| -- \t\tREPORT VALUE (NOT USE SPACE) \t\t -- |\t" << endl << endl;
+              cin >> val;
               system("cls || clear");
-              print_enqueue_queue(queue->enqueue(key, val, label));
-             break;
+              print_enqueue_queue(queue->enqueue(key, label, val));
+             break;}
+           case 2:{
+               int sub_option; 
+               
+               system("cls || clear");
+               cout << "| -- \t\tOPTIONS BELOW \t\t\t -- |" << endl << endl;
+               cout << "| -- \t\tTO UPDATE KEY CLICK (1)\t\t -- |" << endl << endl;
+               cout << "| -- \t\tTO UPDATE VALUE CLICK (2)\t\t -- |" << endl << endl;
+               cout << "| -- \t\tTO UPDATE KEY AND VALUE CLICK (3)\t\t -- |" << endl << endl;
+               cout << "| -- \t\tTO BACK CLICK (4)\t\t -- |" << endl << endl;
+               cout << "| -- \t\tREPORT OPTION     \t\t -- |" << endl << endl; 
+               cin >> sub_option;
+               switch(sub_option){
+                   case 1:{
+                      system("cls || clear");
+                      int key;
+                      int index;
+                      cout << "| -- \t\tREPORT INDEX \t\t -- |\t" << endl << endl;
+                      cin >> index;
+                      system("cls || clear");
+                      cout << "| -- \t\tREPORT KEY \t\t -- |\t" << endl << endl;
+                      cin >> key;                       
+                      system("cls || clear");
+                      print_update_queue(queue->update_queue(index, key));
+                      
+                      break;} 
+                   case 2: {
+                       system("cls || clear");
+                       string val;
+                       int index;
+                       cout << "| -- \t\tREPORT INDEX \t\t -- |\t" << endl << endl;
+                       cin >> index;
+                       system("cls || clear");
+                       cout << "| -- \t\tREPORT VALUE (NOT USE SPACE) \t\t -- |\t" << endl << endl;
+                       cin >> val;                       
+                       system("cls || clear");
+                       print_update_queue(queue->update_queue(index, val));
+                       break;
+                   }
+                   case 3:{
+                       int key;
+                       string val;
+                       system("cls || clear");
+                       int index;
+                       cout << "| -- \t\tREPORT INDEX \t\t -- |\t" << endl << endl;
+                       cin >> index;
+                       system("cls || clear");
+                       cout << "| -- \t\tREPORT KEY \t\t -- |\t" << endl << endl;
+                       cin >> key;
+                       system("cls || clear");
+                       cout << "| -- \t\tREPORT VALUE (NOT USE SPACE) \t\t -- |\t" << endl << endl;
+                       cin >> val;
+                       system("cls || clear");
+                       print_update_queue(queue->update_queue(index, new Node(key, label, val)));
+                       break;
+                   }
+                   case 4: {
+                       option--;
+                       system("cls || clear");
+                       break;
+                   }
+               }
+               break;
+           }
+           case 3: 
+           {
+               system("cls || clear");
+               print_dequeue_queue(queue);
+               break;
+           }
+           case 4:
+               system("cls || clear");
+               print_queue(queue);
+               break;
        } 
-    }while(option != -1);
+    }while(option != -1); 
     
-    queue->enqueue(90, "Time\t", "S.C. INTERNACIONAL");
-    queue->enqueue(75, "Time\t", "SAO PAULO");
-    queue->enqueue(65, "Time\t", "PALMEIRAS");
-    queue->enqueue(64, "Time\t", "FLAMENGO");
-    queue->enqueue(new Node(55, "Time\t", "VASCO"));
     
-    print_dequeue_queue(queue);
-    
-    cout << "| -- \t\t BY ANTONIO ALMEIDA \t\t -- |\t" << endl << endl;
+    cout << "| -- \t\t BY ANTONIO ALMEIDA @ 2020\t\t -- |\t" << endl << endl;
 }
 
 int main(int argc, char** argv) {
-    painel_queue();
+    //painel_queue();
+    
+    QueueData *queue = new QueueData;
+    
+    queue->enqueue(15, "TIME", "INTER");
+    queue->enqueue(45, "TIME", "SAO PAULO");
+    queue->enqueue(74, "TIME", "FLA");
+    
+    for(int i = 0; i < queue->queue_size(); i++){
+        cout << queue->queue_extract_nodes()[i].getindex() << ", ";
+    }
     return 0;
 }
 

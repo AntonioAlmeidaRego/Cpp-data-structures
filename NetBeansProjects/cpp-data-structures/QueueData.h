@@ -20,6 +20,9 @@ public:
     QueueData(const QueueData& orig);
     Node * enqueue(int key, string val, string label);
     Node * enqueue(Node *node);
+    Node * update_queue(int index, int key);
+    Node * update_queue(int index, string val);
+    Node * update_queue(int index, Node *node);
     int queue_size();
     bool queue_empty();
     Node * queue_first();
@@ -28,6 +31,9 @@ public:
     Node * queue_getindex(int index); 
     Node * queue_getval(string val);
     Node * dequeue();
+    int* queue_extract_keys(); 
+    string* queue_extract_values();
+    Node * queue_extract_nodes();
     void queue_print();
     virtual ~QueueData();
 private:
