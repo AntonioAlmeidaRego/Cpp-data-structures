@@ -18,13 +18,15 @@ class QueueData {
 public:
     QueueData();
     QueueData(const QueueData& orig);
-    void enqueue(int key, char val);
-    void enqueue(Node *node);
+    Node * enqueue(int key, string val, string label);
+    Node * enqueue(Node *node);
     int queue_size();
     bool queue_empty();
     Node * queue_first();
     Node * queue_last();
     Node * queue_getkey(int key); 
+    Node * queue_getindex(int index); 
+    Node * queue_getval(string val);
     Node * dequeue();
     void queue_print();
     virtual ~QueueData();
@@ -32,6 +34,11 @@ private:
     int length;
     Node *head; // nó cabeça
     Node *syrup; // nó calda
+    int auto_increment = 1;
+    
+    void update_auto_increment_queue();
+    
+    void auto_increment_queue();
 };
 
 #endif /* QUEUE_H */

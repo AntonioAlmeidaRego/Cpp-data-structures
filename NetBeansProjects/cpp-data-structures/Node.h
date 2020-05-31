@@ -12,27 +12,38 @@
  */
 
 #ifndef NODE_H
-#define NODE_H
+#define NODE_H 
+
+#include <iostream>
+#include <string.h>
+using namespace std;
 
 class Node {
 public:
     Node();
-    Node(int key, char val);
+    Node(int key, string val, string label); 
+    Node(int index, int key, string val, string label);
     Node(const Node& orig);
     virtual ~Node();
     Node * getprev();
     Node * getnext();
     int getkey();
-    char getval();
+    string getval();
+    string getlabel(); 
+    int getindex();
     void setprev(Node *prev);
     void setnext(Node *next);
     void setkey(int key);
-    void setval(char val);
+    void setval(string val);
+    void setindex(int index);
+    void setlabel(string label);     
 private:
     int key;
-    char val;
+    string val;
     Node *next;
     Node *prev;
+    string label; 
+    int index;
 };
 
 #endif /* NODE_H */

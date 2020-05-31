@@ -10,21 +10,33 @@
  * 
  * Created on 30 de maio de 2020, 23:28
  */
-
-#include "Node.h"
+ 
+#include "Node.h" 
+using namespace std;
 
 Node::Node() {
-    this->key = 0;
-    this->val = '0';
-    this->next = nullptr;
-    this->prev = nullptr;
+    key = 0; 
+    label = "";
+    val = "";
+    next = nullptr;
+    prev = nullptr; 
 }
 
-Node::Node(int key, char val){
+Node::Node(int key, string label, string val){
     this->key = key;
-    this->val = val;
-    this->next = nullptr;
-    this->prev = nullptr;
+    this->val = val; 
+    this->label = label;
+    next = nullptr;
+    prev = nullptr; 
+}
+
+Node::Node(int index, int key, string label, string val){
+    this->key = key;
+    this->val = val; 
+    this->label = label;
+    next = nullptr;
+    prev = nullptr; 
+    this->index = index;
 }
 
 Node::Node(const Node& orig) {
@@ -34,20 +46,29 @@ Node::~Node() {
 }
 
 Node * Node::getprev(){
-    return this->prev;
+    return prev;
 }
 
 Node * Node::getnext(){
-    return this->next;
+    return next;
 }
 
 int Node::getkey(){
-    return this->key;
+    return key;
 }
 
-char Node::getval(){
-    return this->val;
+string Node::getval(){
+    return val;
 }
+
+string Node::getlabel(){
+    return label;
+}
+
+int Node::getindex(){
+    return index;
+}
+
 
 void Node::setprev(Node* prev){
     this->prev = prev;
@@ -61,6 +82,16 @@ void Node::setkey(int key){
     this->key = key;
 }
 
-void Node::setval(char val){
+void Node::setval(string val){
     this->val = val;
 }
+
+void Node::setlabel(string label){
+    this->label = label;
+}
+
+void Node::setindex(int index){
+    this->index = index;
+}
+
+
