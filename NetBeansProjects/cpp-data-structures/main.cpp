@@ -269,17 +269,8 @@ void painel_queue(){
 }
 
 int main(int argc, char** argv) {
-    //painel_queue();
+    painel_queue(); 
     
-    QueueData *queue = new QueueData;
-    
-    queue->enqueue(15, "TIME", "INTER");
-    queue->enqueue(45, "TIME", "SAO PAULO");
-    queue->enqueue(74, "TIME", "FLA");
-    
-    for(int i = 0; i < queue->queue_size(); i++){
-        cout << queue->queue_extract_nodes()[i].getindex() << ", ";
-    }
     return 0;
 }
 

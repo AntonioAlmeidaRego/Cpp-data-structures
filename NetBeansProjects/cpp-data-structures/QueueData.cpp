@@ -63,8 +63,8 @@ void QueueData::auto_increment_queue(){
     auto_increment++;
 }
 
-Node * QueueData::enqueue(int key, string val, string label) {
-    Node *node = new Node(auto_increment, key, val, label);
+Node * QueueData::enqueue(int key, string label, string val) {
+    Node *node = new Node(auto_increment, key, label, val);
     auto_increment_queue();
     length++;
     if (queue_empty()) {
@@ -158,6 +158,16 @@ Node * QueueData::update_queue(int index, Node *node){
     return nullptr;
 }
 
+Node * QueueData::update_queue(int index, int key, string val){
+    Node * node_aux = queue_getindex(index);
+    if(node_aux != nullptr){
+        node_aux->setkey(key);
+        node_aux->setval(val);
+        return node_aux;
+    }
+    return nullptr;
+}
+
 void QueueData::update_auto_increment_queue(){
     Node *aux = head->getnext();
     
@@ -183,24 +193,26 @@ int * QueueData::queue_extract_keys(){
     
     return array;
 }
-
-Node * QueueData::queue_extract_nodes(){
-    /*Node *array = new Node[length];
-    Node * aux = head->getnext(); 
-    while (aux != syrup) {
-        array[0];
-        aux = aux->getnext();  
-    } 
-    
-    return array;*/
-}
-
+ 
 string* QueueData::queue_extract_values(){ 
     string *array = new string[length];
     Node * aux = head->getnext();
     int index = 0;
     while (aux != syrup) {
         array[index] = aux->getval();
+        aux = aux->getnext(); 
+        index++;
+    } 
+    
+    return array;
+}
+
+Node* QueueData::queue_extract_nodes(){ 
+    Node *array = new Node[length];
+    Node * aux = head->getnext();
+    int index = 0;
+    while (aux != syrup) {
+        array[index] = *aux;
         aux = aux->getnext(); 
         index++;
     } 
