@@ -14,6 +14,7 @@
 #include <iostream>
 
 #include "QueueData.h"
+#include "StackData.h"
 
 using namespace std;
 
@@ -270,7 +271,7 @@ void painel_queue(){
 
 int main(int argc, char** argv) {
     painel_queue(); 
-    
+     
     return 0;
 }
 
